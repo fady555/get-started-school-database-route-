@@ -19,10 +19,10 @@ class CreateRoomsTable extends Migration
             $table->string('name');
 
             $table->unsignedBigInteger('classroom_id');
-            $table->foreign('classroom_id')->references('id')->on('classrooms');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');;
 
             $table->unsignedBigInteger('school_id');
-            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade')->onUpdate('cascade');;
 
             $table->timestamps();
         });

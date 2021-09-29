@@ -23,11 +23,14 @@ class CreateStudentsTable extends Migration
             $table->date('data_of_birth');
             $table->string('avatar')->nullable();
             $table->unsignedBigInteger('parent_id');
-            $table->foreign('parent_id')->references('id')->on('parents');
+            $table->foreign('parent_id')->references('id')->on('parents')->onUpdate('cascade')->onDelete('cascade');
             $table->longText('file');
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('rooms');
             $table->boolean('status')->default(0)->comment('0=>new in that year  /1=>old in that year back the school year  ');
+
+            $table->unsignedBigInteger('address_id');
+            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });
@@ -44,6 +47,7 @@ class CreateStudentsTable extends Migration
                 'file'=>'',
                 'room_id'=>'2',
                 'status'=>0,
+                'address_id'=>1
             ]
         ]);
     }

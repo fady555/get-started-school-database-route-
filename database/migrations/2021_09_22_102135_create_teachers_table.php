@@ -18,7 +18,7 @@ class CreateTeachersTable extends Migration
             $table->id();
             $table->string('name_en');
             $table->string('name_ar');
-            $table->bigInteger('number_id');
+            $table->bigInteger('id_personal_card');
             $table->boolean('gender')->comment('0=> female  1=>male ');
             $table->date('data_of_birth');
             $table->string('avatar')->nullable();
@@ -35,7 +35,7 @@ class CreateTeachersTable extends Migration
         });
 
         DB::table('teachers')->insert([
-            ['name_en'=>'omer','name_ar'=>'عمر','number_id'=>'89654789532569','gender'=>1,'data_of_birth'=>'2000-6-9','degree'=>'faculty  of english education','address_id'=>1,'number'=>'0128792546899','email'=>'dd']
+            ['name_en'=>'omer','name_ar'=>'عمر','id_personal_card'=>'89654789532569','gender'=>1,'data_of_birth'=>'2000-6-9','degree'=>'faculty  of english education','address_id'=>1,'number'=>'0128792546899','email'=>'dd']
         ]);
     }
 

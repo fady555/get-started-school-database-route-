@@ -16,13 +16,14 @@ class CreateSchoolYearsTable extends Migration
         Schema::create('school_years', function (Blueprint $table) {
             $table->id();
             $table->string('name_year');
+            $table->string('description');
             $table->date('start');
             $table->date('end');
             $table->timestamps();
         });
 
         DB::table('school_years')->insert([
-            ['name_year'=>'2020-2021','start'=>'2020-11-9','end'=>'2021-5-3'],
+            ['name_year'=>'2020-2021','description'=>'سنه 2020 الترم الاول ','start'=>'2020-11-9','end'=>'2021-5-3'],
         ]);
     }
 

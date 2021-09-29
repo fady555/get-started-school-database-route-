@@ -49,10 +49,10 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+    /*public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
-    }
+    }*/
 
     Protected function unauthenticated($request, AuthenticationException $exception)
     {
@@ -63,7 +63,7 @@ class Handler extends ExceptionHandler
                 'data' => [],
                 'message' => 'Not Authorized',
             );
-            return response($content)->setStatusCode(404);
+            return response($content)->setStatusCode(401);
         endif;
     }
 
